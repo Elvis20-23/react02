@@ -1,25 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { db } from './firebase';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 
 
-const AppForm = () => {
+const AppForm = (props) => {
  //////GUARDAR / ACTUALIZAR ////
  const campoRegistro = { nombre:"", edad:"", genero:""}
  const [objeto, setObjeto] = useState(campoRegistro);
+ console.log(objeto);
 
-    const handleSubmit = (e) => {    //manejador de submit
-        e.preventDefault();
-
+    const handleSubmit = async(e) => {    //manejador de submit
         try {
+            e.preventDefault();
 
-            if(validarForm()){
-             
-                addDoc(collection(db, 'persona'), objeto);
-                console.log("Se guardo con exito");
-            }else{
-                console.log("No se guardo");
+            if(props.idActual ===""){          ///GUARDAR
+                if(validarForm()){
+                    addDoc(collection(db, 'persona'), objeto);
+                    console.log("Se guardo con exito");
+                  }else{
+                      console.log("No se guardo");
+                  }
+            }else{                             ///ACTUALIZAR
+                await updateDoc(doc(collection(db,"persona"),props.idActual),objeto);
+                alert("Se actualizó...");
+                props.setIdActual('');
             }
+            setObjeto(campoRegistro);
+            
         } catch (error) {
             console.error();
             
@@ -33,11 +40,32 @@ const AppForm = () => {
         //console.log({name,value});
     }
 
-    //Validación
+    //validacion
     const validarForm = () => {
-        if (objeto.nombre === ''){
-            alert("Escriba nombre...");
-            return false;
+        if(objeto.nombre === ''){
+          alert("Escriba nombre...");
+          return false;
+        }
+
+        return true;
+    }
+
+    //////Obtener datos de BD /////
+    useEffect(() => {
+        if(props.idActual===""){
+          setObjeto({...campoRegistro});
+        }else{
+            obtenerDatosPorId(props.idActual);
+        }
+    }, [props.idActual]);
+    
+    const obtenerDatosPorId =async (xId) => {
+        const objPorId = doc(db, "persona", xId);
+        const docPorId = await getDoc(objPorId);
+        if (docPorId.exists()){
+            setObjeto(docPorId.data());
+        }else{
+            alert("No hay doc ...");
         }
     }
 
@@ -49,19 +77,20 @@ const AppForm = () => {
             <input onChange = {handleStatusChange}
             value={objeto.nombre} name='nombre'
             type='text' placeholder='Nombre...' /><br/>
-
+            
             <input onChange = {handleStatusChange}
             value={objeto.edad} name='edad'
             type='text' placeholder='Edad...' /><br/>
 
             <select onChange = {handleStatusChange}
-             name='género'>
+            name='genero' value={objeto.genero}>
                 <option value="">Seleccione genero...</option>
                 <option value="M"> Masculino </option>
                 <option value="F"> Femenino </option>
             </select><br/>
             <button>
-                Guardar / Actualizar
+                {props.idActual === "" ? "Guardar" : "Actualizar" }
+                
             </button>
             </form>
         </div>
