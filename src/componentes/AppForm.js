@@ -9,24 +9,25 @@ const AppForm = (props) => {
  const [objeto, setObjeto] = useState(campoRegistro);
  console.log(objeto);
 
-    const handleSubmit = async(e) => {    //manejador de submit
-        try {
-            e.preventDefault();
+    const handleSubmit = async (e) => {    //manejador de submit
+        e.preventDefault();
 
-            if(props.idActual ===""){          ///GUARDAR
+        try {
+            if(props.idActual === ""){   //guardar
                 if(validarForm()){
                     addDoc(collection(db, 'persona'), objeto);
-                    console.log("Se guardo con exito");
+                      console.log("Se guardo con exito");
                   }else{
                       console.log("No se guardo");
                   }
-            }else{                             ///ACTUALIZAR
-                await updateDoc(doc(collection(db,"persona"),props.idActual),objeto);
-                alert("Se actualizó...");
-                props.setIdActual('');
+            }else{   ///actualizar
+             await updateDoc(doc(collection(db, "persona"), props.idActual),objeto);
+             alert("Se actualizo");
+             props.setIdActual('');
             }
             setObjeto(campoRegistro);
-            
+
+           
         } catch (error) {
             console.error();
             

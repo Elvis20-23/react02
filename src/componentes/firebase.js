@@ -1,3 +1,4 @@
+/*
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
@@ -12,12 +13,12 @@ import {getStorage} from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAuvCF3BhGK7sqjZXRt3rKqCJdO-KE5DJ8",
-  authDomain: "appreact-b2549.firebaseapp.com",
-  projectId: "appreact-b2549",
-  storageBucket: "appreact-b2549.appspot.com",
-  messagingSenderId: "1079878316312",
-  appId: "1:1079878316312:web:372c172ae1f0e04526ee6d"
+  apiKey: "AIzaSyCcupEDhN_0w3WjxUiMNLQnv1drxswKrq8",
+  authDomain: "appreact-77c62.firebaseapp.com",
+  projectId: "appreact-77c62",
+  storageBucket: "appreact-77c62.appspot.com",
+  messagingSenderId: "622911547187",
+  appId: "1:622911547187:web:505fe12af8bd25af2b0046"
 };
 
 // Initialize Firebase
@@ -27,3 +28,4 @@ const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+*/
