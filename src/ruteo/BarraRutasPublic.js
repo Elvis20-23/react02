@@ -10,6 +10,7 @@ import Home from '../public/Home';
 import Dashboard from '../public/Dashboard';
 import Informacion from '../public/Informacion';
 import Noticia from '../public/Noticia';
+import Contacto from '../public/Contacto';
 import LoginForm from '../login/LoginForm';
 
 const BarraRutasPublic = () => {
@@ -35,10 +36,10 @@ const BarraRutasPublic = () => {
           
           <div id="menu">
             <ul>
-              <li><Link to="/">Portada(Dashboard)</Link> </li>
               <li><Link to="/home">Inicio(Home)</Link> </li>
               <li><Link to="/Informacion">Informacion</Link> </li>
               <li><Link to="/Noticia">Noticias</Link> </li>
+              <li><Link to="/Contacto">Contacto</Link> </li>
               
 
             </ul>
@@ -47,10 +48,11 @@ const BarraRutasPublic = () => {
   
         <Routes>
         <Route path="/iniciarsesion" element={<LoginForm />} />
-        <Route path="/" element={<Dashboard />} />
         <Route path="/home" element={<Home />} />
         <Route path="/Informacion" element={<Informacion />} />
         <Route path="/Noticia" element={<Noticia />} />
+        <Route path="/Contacto" element={<Contacto />} />
+
         </Routes> 
       </div>
     )

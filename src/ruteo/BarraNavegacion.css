@@ -16,4 +16,5 @@ nav li {padding-right: 10px;}
 
 @media (max-width: 600px){
   #login, #menu{display: grid; }
+  
 }

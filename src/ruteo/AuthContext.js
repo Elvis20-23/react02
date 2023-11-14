@@ -8,6 +8,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../conexion/firebase';
 import { doc, getDoc} from "firebase/firestore";
+import "bootswatch/dist/superhero/bootstrap.min.css"
+
 
 
 // (3) Creando un contexto

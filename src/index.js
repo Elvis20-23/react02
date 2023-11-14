@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from './ruteo/AuthContext';
-
 import "bootswatch/dist/superhero/bootstrap.min.css"
 //import 'bootswatch/dist/solar/bootstrap.min.css';
 

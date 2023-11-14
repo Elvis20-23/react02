@@ -25,6 +25,9 @@ import AppLista from '../protegido/sistemacrud/AppLista';
 import ListaDeProfesores from '../protegido/sistemacrud/ListaDeProfesores';
 import ListaDeDeportes from '../protegido/sistemacrud/ListaDeDeportes';
 import ListaDeCarreras from '../protegido/sistemacrud/ListaDeCarreras';
+import ListaDeEgresados from '../protegido/sistemacrud/ListaDeEgresados';
+import "bootswatch/dist/superhero/bootstrap.min.css"
+
 
 const BarraRutasProtected = () => {
     const { user } = useAuth();
@@ -58,14 +61,17 @@ const BarraRutasProtected = () => {
               
           <div id="menu">
             <ul>
-              <li><Link to="/sistema-crud/applista">Alumnos(App-Lista)</Link> </li>
-              <li><Link to="/sistema-crud/profesores">Profesores</Link> </li>
-              <li><Link to="/sistema-crud/deportes">Deportes</Link> </li>
               <li><Link to="/sistema-crud/carreras">Carreras</Link> </li>
+              <li><Link to="/sistema-crud/deportes">Deportes</Link> </li>
+              <li><Link to="/sistema-crud/egre">Egresados</Link> </li>
+              <li><Link to="/sistema-crud/applista">Alumnos(App-Lista)</Link> </li>
+              
+              
+              
                       
+              <li><Link to="/sistema-file/videos">Videos</Link> </li>
               <li><Link to="/sistema-file/fotos">Galería de fotos</Link> </li>
               <li><Link to="/sistema-file/docpdf">Doc. PDF</Link> </li>
-              <li><Link to="/sistema-file/videos">Videos</Link> </li>
               <li><Link to="/sistema-file/docword">Doc. Word</Link> </li>
             </ul>
           </div>
@@ -80,7 +86,7 @@ const BarraRutasProtected = () => {
           <Route path="/sistema-crud" element={<MarcoParaSistemaCRUD />}>
             <Route index element={<SistemaCRUD />} />
             <Route path="applista" element={<AppLista />} />
-            <Route path="profesores" element={<ListaDeProfesores/>} />
+            <Route path="egre" element={<ListaDeEgresados/>} />
             <Route path="deportes" element={<ListaDeDeportes/>} />
             <Route path="carreras" element={<ListaDeCarreras/>} />
           </Route>

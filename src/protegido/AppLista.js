@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AppForm from './AppForm';
 import { collection, deleteDoc, doc, onSnapshot, query } from 'firebase/firestore';
 import { db } from '../conexion/firebase';
+import "bootswatch/dist/superhero/bootstrap.min.css"
  
 const AppLista = (props) => {
 

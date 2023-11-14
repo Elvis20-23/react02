@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../conexion/firebase'; // Importa el objeto auth 
 import { useNavigate } from 'react-router';
+import "bootswatch/dist/superhero/bootstrap.min.css"
 
 //import Button from 'react-bootstrap/Button';
 //import Form from 'react-bootstrap/Form';

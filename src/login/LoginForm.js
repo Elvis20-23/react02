@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../ruteo/AuthContext'; // (7). Importando contexto
 import { useNavigate } from 'react-router-dom';
+import { getDoc, doc } from 'firebase/firestore';
+import { auth, db } from '../conexion/firebase';
 
 function LoginForm() {
   
