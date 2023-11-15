@@ -10,8 +10,9 @@ import Home from '../public/Home';
 import Dashboard from '../public/Dashboard';
 import Informacion from '../public/Informacion';
 import Noticia from '../public/Noticia';
-import Contacto from '../public/Contacto';
 import LoginForm from '../login/LoginForm';
+import RegisterForm from '../login/RegisterForm';
+import Contacto from '../public/Contacto';
 
 const BarraRutasPublic = () => {
     const { user } = useAuth();
@@ -36,10 +37,12 @@ const BarraRutasPublic = () => {
           
           <div id="menu">
             <ul>
+             
               <li><Link to="/home">Inicio(Home)</Link> </li>
-              <li><Link to="/Informacion">Informacion</Link> </li>
-              <li><Link to="/Noticia">Noticias</Link> </li>
-              <li><Link to="/Contacto">Contacto</Link> </li>
+              <li><Link to="/Informacion">INFORMACION</Link> </li>
+              <li><Link to="/Noticia">NOTICIAS</Link> </li>
+              <li><Link to="/">Contacto</Link> </li>
+              <li><Link to="/nuevoregistro">Registrar</Link></li>
               
 
             </ul>
@@ -48,11 +51,11 @@ const BarraRutasPublic = () => {
   
         <Routes>
         <Route path="/iniciarsesion" element={<LoginForm />} />
+        <Route path="/" element={<Contacto />} />
         <Route path="/home" element={<Home />} />
         <Route path="/Informacion" element={<Informacion />} />
         <Route path="/Noticia" element={<Noticia />} />
-        <Route path="/Contacto" element={<Contacto />} />
-
+        <Route path="/nuevoregistro" element={<RegisterForm />} />
         </Routes> 
       </div>
     )
